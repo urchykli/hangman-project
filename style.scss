@@ -1,0 +1,21 @@
+@import "node_modules/bootstrap/scss/bootstrap.scss";
+.row {
+	// width: 75%;
+	margin: 0 auto;
+	text-align: center;
+}
+h1 {
+	height: 75px;
+	margin: 25px auto;
+}
+.gameBoard {
+	height: 150px;
+	border: 1px solid black;
+	margin-bottom: 25px;
+}
+.game {
+	height: 150px;
+}
+.underscores {
+	margin: 25px auto;
+}

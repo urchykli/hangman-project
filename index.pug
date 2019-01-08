@@ -1,0 +1,23 @@
+doctype html
+head
+  link(rel="stylesheet", href="reset.css")
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(http-equiv='X-UA-Compatible' content='ie=edge')
+  link(rel='stylesheet' href='style.scss')
+  title Hangman
+body
+  .container-fluid
+    .row
+      h1.col-12 HANGMAN GAME
+      p.col-12 Type a letter
+      .col-12.gameBoard
+        .row.game.d-flex.p-2.bd-highlight.align-items-center
+          .col.littleMan little man goes here
+          .col.underscore _ _ _ _
+      .col-12.wrongGuess Wrong Guesses
+
+
+
+
+script(src='script.js')
