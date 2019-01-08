@@ -3,9 +3,15 @@ const word = ['horse', 'pizza', 'orange', 'sprinter', 'hilarious']
 // select random word
 let randomNum = Math.floor(Math.random() * word.length)
 let wordPicked = word[randomNum]
+
+// create empty arrays
+let rightGuess = []
+let wrongGuess = []
+let underscores = []
+
+
 console.log(wordPicked)
 // populate underscores based on word length
-let underscores = []
 let makeUnderscore = document.getElementsByClassName('underscore')
 let getUnderscores = () => {
 	for (let i = 0; i < wordPicked.length; i++) {
@@ -16,20 +22,27 @@ let getUnderscores = () => {
 }
 
 console.log(getUnderscores())
-// listen for letter
 
+// listen for letter
 document.addEventListener('keypress', (event) => {
 	let keyed = String.fromCharCode(event.keyCode)
 	if (wordPicked.indexOf(keyed) > -1) {
-		console.log(true)
+		for (let i = 0; i < wordPicked.length; i++) {
+			// if the letter is correct replace underscore
+			if (wordPicked[i] == keyed) {
+				underscores[i] = keyed
+				makeUnderscore[0].innerHTML = underscores.join(' ')
+			}
+		}
+		console.log(underscores)
 	}
+	console.log(keyed)
 })
 
+// if the letter pressed is part of wordPicked, I want to insert (innerHTML) that letter into the makeUnderscores array
 
 
 
-
-// if the letter is correct replace underscore
 // if the word has been guessed, alert you win
 // if letter is incorrect and hasn't been guessed before, add to wrong guesses
 // if letter is incorrect and hasn't been guesses before, draw next portion of man

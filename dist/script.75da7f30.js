@@ -109,10 +109,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var word = ['horse', 'pizza', 'orange', 'sprinter', 'hilarious']; // select random word
 
 var randomNum = Math.floor(Math.random() * word.length);
-var wordPicked = word[randomNum];
+var wordPicked = word[randomNum]; // create empty arrays
+
+var rightGuess = [];
+var wrongGuess = [];
+var underscores = [];
 console.log(wordPicked); // populate underscores based on word length
 
-var underscores = [];
 var makeUnderscore = document.getElementsByClassName('underscore');
 
 var getUnderscores = function getUnderscores() {
@@ -130,9 +133,19 @@ document.addEventListener('keypress', function (event) {
   var keyed = String.fromCharCode(event.keyCode);
 
   if (wordPicked.indexOf(keyed) > -1) {
-    console.log(true);
+    for (var i = 0; i < wordPicked.length; i++) {
+      // if the letter is correct replace underscore
+      if (wordPicked[i] == keyed) {
+        underscores[i] = keyed;
+        makeUnderscore[0].innerHTML = underscores.join(' ');
+      }
+    }
+
+    console.log(underscores);
   }
-}); // if the letter is correct replace underscore
+
+  console.log(keyed);
+}); // if the letter pressed is part of wordPicked, I want to insert (innerHTML) that letter into the makeUnderscores array
 // if the word has been guessed, alert you win
 // if letter is incorrect and hasn't been guessed before, add to wrong guesses
 // if letter is incorrect and hasn't been guesses before, draw next portion of man
@@ -167,7 +180,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56091" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60213" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
