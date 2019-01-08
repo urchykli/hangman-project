@@ -27,11 +27,7 @@ document.addEventListener('keypress', (event) => {
 
 
 
-// document.addEventListener('keypress', keyed)
-// let keyed = (event) => {
-// 	String.fromCharCode(event.keyCode)
-// 	console.log(keyed)
-// }
+
 
 // if the letter is correct replace underscore
 // if the word has been guessed, alert you win

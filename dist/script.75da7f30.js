@@ -132,12 +132,7 @@ document.addEventListener('keypress', function (event) {
   if (wordPicked.indexOf(keyed) > -1) {
     console.log(true);
   }
-}); // document.addEventListener('keypress', keyed)
-// let keyed = (event) => {
-// 	String.fromCharCode(event.keyCode)
-// 	console.log(keyed)
-// }
-// if the letter is correct replace underscore
+}); // if the letter is correct replace underscore
 // if the word has been guessed, alert you win
 // if letter is incorrect and hasn't been guessed before, add to wrong guesses
 // if letter is incorrect and hasn't been guesses before, draw next portion of man
@@ -172,7 +167,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65488" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56091" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
