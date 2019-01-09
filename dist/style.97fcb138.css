@@ -9512,8 +9512,8 @@ h3 {
   }
 }
 body {
-  background: #52483c;
-  color: #daffff;
+  background: #2F5373;
+  color: #D5FAA2;
   font-family: "Noto Serif TC", serif;
 }
 
@@ -9537,8 +9537,6 @@ h1 {
 
 .game {
   height: 450px;
-  border: 6px solid #10613F;
-  background: #2868A1;
 }
 
 .underscore {
@@ -9549,11 +9547,16 @@ h1 {
 img {
   height: 400px;
   width: 300px;
-  object-fit: fill;
+  object-fit: contain;
 }
 
 p {
   font-family: "Nunito Sans", sans-serif;
   letter-spacing: 2px;
   font-size: 40px;
+}
+
+.instructions {
+  font-size: 25px;
+  margin-bottom: 5px;
 }
