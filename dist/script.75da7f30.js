@@ -116,7 +116,8 @@ var underscores = [];
 console.log(wordPicked); // DOM Manipulation
 
 var makeUnderscore = document.getElementsByClassName('underscore');
-var wrong = document.getElementsByClassName('wrongGuess'); // populate underscores based on word length
+var wrong = document.getElementsByClassName('wrongGuess');
+var man = document.getElementsByClassName("littleMan"); // populate underscores based on word length
 
 var getUnderscores = function getUnderscores() {
   for (var i = 0; i < wordPicked.length; i++) {
@@ -132,7 +133,8 @@ console.log(getUnderscores()); // listen for letter
 document.addEventListener('keypress', function (event) {
   var keyed = String.fromCharCode(event.keyCode);
 
-  if (wordPicked.indexOf(keyed) > -1 && underscores[0] !== '_') {
+  if (wordPicked.indexOf(keyed) > -1) {
+    //where can I put the includes to alert once the game has been won?
     for (var i = 0; i < wordPicked.length; i++) {
       // if the letter is correct replace underscore
       if (wordPicked[i] == keyed) {
@@ -140,9 +142,17 @@ document.addEventListener('keypress', function (event) {
         makeUnderscore[0].innerHTML = underscores.join(' ');
       }
     }
-  } else {
+  } else if (wrongGuess.indexOf(keyed) === -1) {
+    for (var j = 1; j < 10; j++) {
+      man.src = "/images/".concat(j, ".jpg");
+    }
+
     wrongGuess.push(keyed);
     wrong[0].innerHTML = wrongGuess.join(' ');
+  } else if (wrongGuess.indexOf(keyed) > -1) {
+    alert('Already guessed');
+  } else if (underscores.indexOf("_") === -1) {
+    alert('You won!');
   }
 
   console.log(underscores);
@@ -181,7 +191,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49809" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64805" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

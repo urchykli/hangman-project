@@ -14,7 +14,7 @@ console.log(wordPicked)
 // DOM Manipulation
 let makeUnderscore = document.getElementsByClassName('underscore')
 let wrong = document.getElementsByClassName('wrongGuess')
-
+let man = document.getElementsByClassName("littleMan");
 // populate underscores based on word length
 let getUnderscores = () => {
 	for (let i = 0; i < wordPicked.length; i++) {
@@ -28,7 +28,7 @@ console.log(getUnderscores())
 // listen for letter
 document.addEventListener('keypress', (event) => {
 	let keyed = String.fromCharCode(event.keyCode)
-	if (wordPicked.indexOf(keyed) > -1 && underscores[0] !== '_') {
+	if (wordPicked.indexOf(keyed) > -1) { //where can I put the includes to alert once the game has been won?
 		for (let i = 0; i < wordPicked.length; i++) {
 			// if the letter is correct replace underscore
 			if (wordPicked[i] == keyed) {
@@ -37,9 +37,18 @@ document.addEventListener('keypress', (event) => {
 			}
 		}
 	}
-	else {
+	else if (wrongGuess.indexOf(keyed) === -1) {
+		for (let j = 1; j < 10; j++) {
+			man.src = `/images/${j}.jpg`
+		}		
 		wrongGuess.push(keyed)
 		wrong[0].innerHTML = wrongGuess.join(' ')
+	}
+	else if (wrongGuess.indexOf(keyed) > -1) {
+		alert('Already guessed')
+	}
+	else if (underscores.indexOf("_") === -1) {
+		alert('You won!')
 	}
 		console.log(underscores)
 	console.log(keyed)
