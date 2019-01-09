@@ -7,6 +7,7 @@ let wordPicked = word[randomNum]
 // create empty arrays
 let wrongGuess = []
 let underscores = []
+let wrongCount = 0
 
 
 console.log(wordPicked)
@@ -14,7 +15,7 @@ console.log(wordPicked)
 // DOM Manipulation
 let makeUnderscore = document.getElementsByClassName('underscore')
 let wrong = document.getElementsByClassName('wrongGuess')
-let man = document.getElementsByClassName("littleMan");
+let man = document.getElementById("littleMan");
 // populate underscores based on word length
 let getUnderscores = () => {
 	for (let i = 0; i < wordPicked.length; i++) {
@@ -31,16 +32,18 @@ document.addEventListener('keypress', (event) => {
 	if (wordPicked.indexOf(keyed) > -1) { //where can I put the includes to alert once the game has been won?
 		for (let i = 0; i < wordPicked.length; i++) {
 			// if the letter is correct replace underscore
-			if (wordPicked[i] == keyed) {
+			if (wordPicked[i] == keyed) { //I thought this would allow upper and lowercase??
 				underscores[i] = keyed
 				makeUnderscore[0].innerHTML = underscores.join(' ')
 			}
 		}
 	}
+	// if letter is not in the word
 	else if (wrongGuess.indexOf(keyed) === -1) {
-		for (let j = 1; j < 10; j++) {
-			man.src = `/images/${j}.jpg`
-		}		
+		wrongCount++
+		// trying to get image to change
+			man.src = `/images/${wrongCount}.jpg`
+		// if letter is incorrect and hasn't been guessed before, add to wrong guesses
 		wrongGuess.push(keyed)
 		wrong[0].innerHTML = wrongGuess.join(' ')
 	}
@@ -59,7 +62,6 @@ document.addEventListener('keypress', (event) => {
 
 
 // if the word has been guessed, alert you win
-// if letter is incorrect and hasn't been guessed before, add to wrong guesses
 // if letter is incorrect and hasn't been guesses before, draw next portion of man
 // if man is complete, alert you lost
 // if play again is pressed, clear wrong guesses

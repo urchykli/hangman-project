@@ -113,11 +113,12 @@ var wordPicked = word[randomNum]; // create empty arrays
 
 var wrongGuess = [];
 var underscores = [];
+var wrongCount = 0;
 console.log(wordPicked); // DOM Manipulation
 
 var makeUnderscore = document.getElementsByClassName('underscore');
 var wrong = document.getElementsByClassName('wrongGuess');
-var man = document.getElementsByClassName("littleMan"); // populate underscores based on word length
+var man = document.getElementById("littleMan"); // populate underscores based on word length
 
 var getUnderscores = function getUnderscores() {
   for (var i = 0; i < wordPicked.length; i++) {
@@ -138,27 +139,28 @@ document.addEventListener('keypress', function (event) {
     for (var i = 0; i < wordPicked.length; i++) {
       // if the letter is correct replace underscore
       if (wordPicked[i] == keyed) {
+        //I thought this would allow upper and lowercase??
         underscores[i] = keyed;
         makeUnderscore[0].innerHTML = underscores.join(' ');
       }
     }
-  } else if (wrongGuess.indexOf(keyed) === -1) {
-    for (var j = 1; j < 10; j++) {
-      man.src = "/images/".concat(j, ".jpg");
-    }
+  } // if letter is not in the word
+  else if (wrongGuess.indexOf(keyed) === -1) {
+      wrongCount++; // trying to get image to change
 
-    wrongGuess.push(keyed);
-    wrong[0].innerHTML = wrongGuess.join(' ');
-  } else if (wrongGuess.indexOf(keyed) > -1) {
-    alert('Already guessed');
-  } else if (underscores.indexOf("_") === -1) {
-    alert('You won!');
-  }
+      man.src = "/images/".concat(wrongCount, ".jpg"); // if letter is incorrect and hasn't been guessed before, add to wrong guesses
+
+      wrongGuess.push(keyed);
+      wrong[0].innerHTML = wrongGuess.join(' ');
+    } else if (wrongGuess.indexOf(keyed) > -1) {
+      alert('Already guessed');
+    } else if (underscores.indexOf("_") === -1) {
+      alert('You won!');
+    }
 
   console.log(underscores);
   console.log(keyed);
 }); // if the word has been guessed, alert you win
-// if letter is incorrect and hasn't been guessed before, add to wrong guesses
 // if letter is incorrect and hasn't been guesses before, draw next portion of man
 // if man is complete, alert you lost
 // if play again is pressed, clear wrong guesses
@@ -191,7 +193,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64805" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64219" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
