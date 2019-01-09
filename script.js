@@ -1,65 +1,61 @@
 // create array of words
-const word = ['horse', 'pizza', 'orange', 'sprinter', 'hilarious']
+const word = ["horse", "pizza", "orange", "sprinter", "hilarious"];
 // select random word
-let randomNum = Math.floor(Math.random() * word.length)
-let wordPicked = word[randomNum]
+let randomNum = Math.floor(Math.random() * word.length);
+let wordPicked = word[randomNum];
 
 // create empty arrays
-let wrongGuess = []
-let underscores = []
-let wrongCount = 0
+let wrongGuess = [];
+let underscores = [];
+let wrongCount = 0;
 
-
-console.log(wordPicked)
+console.log(wordPicked);
 
 // DOM Manipulation
-let makeUnderscore = document.getElementsByClassName('underscore')
-let wrong = document.getElementsByClassName('wrongGuess')
+let makeUnderscore = document.getElementsByClassName("underscore");
+let wrong = document.getElementsByClassName("wrongGuess");
 let man = document.getElementById("littleMan");
 // populate underscores based on word length
 let getUnderscores = () => {
-	for (let i = 0; i < wordPicked.length; i++) {
-		underscores.push(' _ ')
-		makeUnderscore[0].innerHTML = underscores.join(' ')
-	}
-	return underscores
-}
+  for (let i = 0; i < wordPicked.length; i++) {
+    underscores.push(" _ ");
+    makeUnderscore[0].innerHTML = underscores.join(" ");
+  }
+  return underscores;
+};
 
-console.log(getUnderscores())
+console.log(getUnderscores());
 // listen for letter
-document.addEventListener('keypress', (event) => {
-	let keyed = String.fromCharCode(event.keyCode)
-	if (wordPicked.indexOf(keyed) > -1) { //where can I put the includes to alert once the game has been won?
-		for (let i = 0; i < wordPicked.length; i++) {
-			// if the letter is correct replace underscore
-			if (wordPicked[i] == keyed) { //I thought this would allow upper and lowercase??
-				underscores[i] = keyed
-				makeUnderscore[0].innerHTML = underscores.join(' ')
-			}
-		}
-	}
-	// if letter is not in the word
-	else if (wrongGuess.indexOf(keyed) === -1) {
-		wrongCount++
-		// trying to get image to change
-			man.src = `/images/${wrongCount}.jpg`
-		// if letter is incorrect and hasn't been guessed before, add to wrong guesses
-		wrongGuess.push(keyed)
-		wrong[0].innerHTML = wrongGuess.join(' ')
-	}
-	else if (wrongGuess.indexOf(keyed) > -1) {
-		alert('Already guessed')
-	}
-	else if (underscores.indexOf("_") === -1) {
-		alert('You won!')
-	}
-		console.log(underscores)
-	console.log(keyed)
-})
-
-
-
-
+document.addEventListener("keypress", event => {
+  let guess = String.fromCharCode(event.keyCode);
+  let keyed = guess.toLowerCase();
+  if (wordPicked.indexOf(keyed) > -1) {
+    //where can I put the includes to alert once the game has been won?
+    for (let i = 0; i < wordPicked.length; i++) {
+      // if the letter is correct replace underscore
+      if (wordPicked[i] == keyed) {
+        //I thought this would allow upper and lowercase??
+        underscores[i] = keyed;
+        makeUnderscore[0].innerHTML = underscores.join(" ");
+      }
+    }
+  }
+  // if letter is not in the word
+  else if (wrongGuess.indexOf(keyed) === -1) {
+    wrongCount++;
+    // trying to get image to change
+    man.src = `/images/${wrongCount}.jpg`;
+    // if letter is incorrect and hasn't been guessed before, add to wrong guesses
+    wrongGuess.push(keyed);
+    wrong[0].innerHTML = wrongGuess.join(" ");
+  } else if (wrongGuess.indexOf(keyed) > -1) {
+    alert("Already guessed");
+  } else if (underscores.indexOf("_") === -1) {
+    alert("You won!");
+  }
+  console.log(underscores);
+  console.log(keyed);
+});
 
 // if the word has been guessed, alert you win
 // if letter is incorrect and hasn't been guesses before, draw next portion of man

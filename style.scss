@@ -1,26 +1,42 @@
 @import "node_modules/bootstrap/scss/bootstrap.scss";
+body {
+  background: #52483c;
+  color: #daffff;
+  font-family: "Noto Serif TC", serif;
+}
+
 .row {
-	// width: 75%;
-	margin: 0 auto;
-	text-align: center;
+  // width: 75%;
+  margin: 0 auto;
+  text-align: center;
 }
 h1 {
-	margin: 25px auto 0 25px;
-	padding: 0;
+  margin: 25px auto 0 auto;
+  padding: 0;
+  font-family: "Anton", sans-serif;
+  letter-spacing: 10px;
+  font-size: 75px;
 }
 .gameBoard {
-	height: 450px;
-	border: 1px solid black;
-	margin-bottom: 25px;
+  height: 450px;
+  margin-bottom: 25px;
 }
 .game {
 	height: 450px;
+	border: 6px solid #10613F;
+	background: #2868A1;
 }
 .underscore {
-	margin: 25px auto;
-	font-size: 50px;
+  margin: 25px auto;
+  font-size: 50px;
 }
 img {
-	height: 400px; 
-	object-fit: fill;
+  height: 400px;
+  width: 300px;
+  object-fit: fill;
+}
+p {
+	font-family: 'Nunito Sans', sans-serif;
+	letter-spacing: 2px;
+	font-size: 40px;
 }

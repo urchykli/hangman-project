@@ -106,7 +106,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"script.js":[function(require,module,exports) {
 // create array of words
-var word = ['horse', 'pizza', 'orange', 'sprinter', 'hilarious']; // select random word
+var word = ["horse", "pizza", "orange", "sprinter", "hilarious"]; // select random word
 
 var randomNum = Math.floor(Math.random() * word.length);
 var wordPicked = word[randomNum]; // create empty arrays
@@ -116,14 +116,14 @@ var underscores = [];
 var wrongCount = 0;
 console.log(wordPicked); // DOM Manipulation
 
-var makeUnderscore = document.getElementsByClassName('underscore');
-var wrong = document.getElementsByClassName('wrongGuess');
+var makeUnderscore = document.getElementsByClassName("underscore");
+var wrong = document.getElementsByClassName("wrongGuess");
 var man = document.getElementById("littleMan"); // populate underscores based on word length
 
 var getUnderscores = function getUnderscores() {
   for (var i = 0; i < wordPicked.length; i++) {
-    underscores.push(' _ ');
-    makeUnderscore[0].innerHTML = underscores.join(' ');
+    underscores.push(" _ ");
+    makeUnderscore[0].innerHTML = underscores.join(" ");
   }
 
   return underscores;
@@ -131,8 +131,9 @@ var getUnderscores = function getUnderscores() {
 
 console.log(getUnderscores()); // listen for letter
 
-document.addEventListener('keypress', function (event) {
-  var keyed = String.fromCharCode(event.keyCode);
+document.addEventListener("keypress", function (event) {
+  var guess = String.fromCharCode(event.keyCode);
+  var keyed = guess.toLowerCase();
 
   if (wordPicked.indexOf(keyed) > -1) {
     //where can I put the includes to alert once the game has been won?
@@ -141,7 +142,7 @@ document.addEventListener('keypress', function (event) {
       if (wordPicked[i] == keyed) {
         //I thought this would allow upper and lowercase??
         underscores[i] = keyed;
-        makeUnderscore[0].innerHTML = underscores.join(' ');
+        makeUnderscore[0].innerHTML = underscores.join(" ");
       }
     }
   } // if letter is not in the word
@@ -151,11 +152,11 @@ document.addEventListener('keypress', function (event) {
       man.src = "/images/".concat(wrongCount, ".jpg"); // if letter is incorrect and hasn't been guessed before, add to wrong guesses
 
       wrongGuess.push(keyed);
-      wrong[0].innerHTML = wrongGuess.join(' ');
+      wrong[0].innerHTML = wrongGuess.join(" ");
     } else if (wrongGuess.indexOf(keyed) > -1) {
-      alert('Already guessed');
+      alert("Already guessed");
     } else if (underscores.indexOf("_") === -1) {
-      alert('You won!');
+      alert("You won!");
     }
 
   console.log(underscores);
@@ -193,7 +194,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64219" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54462" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
