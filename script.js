@@ -5,14 +5,17 @@ let randomNum = Math.floor(Math.random() * word.length)
 let wordPicked = word[randomNum]
 
 // create empty arrays
-let rightGuess = []
 let wrongGuess = []
 let underscores = []
 
 
 console.log(wordPicked)
-// populate underscores based on word length
+
+// DOM Manipulation
 let makeUnderscore = document.getElementsByClassName('underscore')
+let wrong = document.getElementsByClassName('wrongGuess')
+
+// populate underscores based on word length
 let getUnderscores = () => {
 	for (let i = 0; i < wordPicked.length; i++) {
 		underscores.push(' _ ')
@@ -22,11 +25,10 @@ let getUnderscores = () => {
 }
 
 console.log(getUnderscores())
-
 // listen for letter
 document.addEventListener('keypress', (event) => {
 	let keyed = String.fromCharCode(event.keyCode)
-	if (wordPicked.indexOf(keyed) > -1) {
+	if (wordPicked.indexOf(keyed) > -1 && underscores[0] !== '_') {
 		for (let i = 0; i < wordPicked.length; i++) {
 			// if the letter is correct replace underscore
 			if (wordPicked[i] == keyed) {
@@ -34,12 +36,16 @@ document.addEventListener('keypress', (event) => {
 				makeUnderscore[0].innerHTML = underscores.join(' ')
 			}
 		}
-		console.log(underscores)
 	}
+	else {
+		wrongGuess.push(keyed)
+		wrong[0].innerHTML = wrongGuess.join(' ')
+	}
+		console.log(underscores)
 	console.log(keyed)
 })
 
-// if the letter pressed is part of wordPicked, I want to insert (innerHTML) that letter into the makeUnderscores array
+
 
 
 

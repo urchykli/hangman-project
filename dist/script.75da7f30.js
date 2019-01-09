@@ -111,12 +111,12 @@ var word = ['horse', 'pizza', 'orange', 'sprinter', 'hilarious']; // select rand
 var randomNum = Math.floor(Math.random() * word.length);
 var wordPicked = word[randomNum]; // create empty arrays
 
-var rightGuess = [];
 var wrongGuess = [];
 var underscores = [];
-console.log(wordPicked); // populate underscores based on word length
+console.log(wordPicked); // DOM Manipulation
 
 var makeUnderscore = document.getElementsByClassName('underscore');
+var wrong = document.getElementsByClassName('wrongGuess'); // populate underscores based on word length
 
 var getUnderscores = function getUnderscores() {
   for (var i = 0; i < wordPicked.length; i++) {
@@ -132,7 +132,7 @@ console.log(getUnderscores()); // listen for letter
 document.addEventListener('keypress', function (event) {
   var keyed = String.fromCharCode(event.keyCode);
 
-  if (wordPicked.indexOf(keyed) > -1) {
+  if (wordPicked.indexOf(keyed) > -1 && underscores[0] !== '_') {
     for (var i = 0; i < wordPicked.length; i++) {
       // if the letter is correct replace underscore
       if (wordPicked[i] == keyed) {
@@ -140,13 +140,14 @@ document.addEventListener('keypress', function (event) {
         makeUnderscore[0].innerHTML = underscores.join(' ');
       }
     }
-
-    console.log(underscores);
+  } else {
+    wrongGuess.push(keyed);
+    wrong[0].innerHTML = wrongGuess.join(' ');
   }
 
+  console.log(underscores);
   console.log(keyed);
-}); // if the letter pressed is part of wordPicked, I want to insert (innerHTML) that letter into the makeUnderscores array
-// if the word has been guessed, alert you win
+}); // if the word has been guessed, alert you win
 // if letter is incorrect and hasn't been guessed before, add to wrong guesses
 // if letter is incorrect and hasn't been guesses before, draw next portion of man
 // if man is complete, alert you lost
@@ -180,7 +181,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60213" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49809" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
