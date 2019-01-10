@@ -34,7 +34,6 @@ document.addEventListener("keypress", event => {
     for (let i = 0; i < wordPicked.length; i++) {
       // if the letter is correct replace underscore
       if (wordPicked[i] == keyed) {
-        //I thought this would allow upper and lowercase??
         underscores[i] = keyed;
         makeUnderscore[0].innerHTML = underscores.join(" ");
       }
@@ -43,7 +42,7 @@ document.addEventListener("keypress", event => {
   // if letter is not in the word
   else if (wrongGuess.indexOf(keyed) === -1) {
     wrongCount++;
-    // trying to get image to change
+    // update image
     man.src = `/images/${wrongCount}.jpg`;
     // if letter is incorrect and hasn't been guessed before, add to wrong guesses
     wrongGuess.push(keyed);

@@ -140,14 +140,13 @@ document.addEventListener("keypress", function (event) {
     for (var i = 0; i < wordPicked.length; i++) {
       // if the letter is correct replace underscore
       if (wordPicked[i] == keyed) {
-        //I thought this would allow upper and lowercase??
         underscores[i] = keyed;
         makeUnderscore[0].innerHTML = underscores.join(" ");
       }
     }
   } // if letter is not in the word
   else if (wrongGuess.indexOf(keyed) === -1) {
-      wrongCount++; // trying to get image to change
+      wrongCount++; // update image
 
       man.src = "/images/".concat(wrongCount, ".jpg"); // if letter is incorrect and hasn't been guessed before, add to wrong guesses
 
@@ -194,7 +193,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50374" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56468" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

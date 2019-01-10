@@ -9512,8 +9512,8 @@ h3 {
   }
 }
 body {
-  background: #2F5373;
-  color: #D5FAA2;
+  background: #D8D9DE;
+  color: #584848;
   font-family: "Noto Serif TC", serif;
 }
 
@@ -9524,10 +9524,13 @@ body {
 
 h1 {
   margin: 25px auto 0 auto;
-  padding: 0;
+  padding: 25px 0 25px 0;
   font-family: "Anton", sans-serif;
   letter-spacing: 10px;
   font-size: 75px;
+  color: #6E7889;
+  background-color: #393B45;
+  border-bottom: 2px solid #F3B54A;
 }
 
 .gameBoard {
@@ -9559,4 +9562,8 @@ p {
 .instructions {
   font-size: 25px;
   margin-bottom: 5px;
+}
+
+.wrongGuess {
+  font-size: 25px;
 }
