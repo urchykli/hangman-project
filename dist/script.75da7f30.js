@@ -133,7 +133,7 @@ console.log(getUnderscores()); // listen for letter
 
 document.addEventListener("keypress", function (event) {
   var guess = String.fromCharCode(event.keyCode);
-  var keyed = guess.toLowerCase();
+  var keyed = guess.toLowerCase(); //checking if letter is in word
 
   if (wordPicked.indexOf(keyed) > -1) {
     //where can I put the includes to alert once the game has been won?
@@ -166,9 +166,10 @@ document.addEventListener("keypress", function (event) {
 
   console.log(underscores);
   console.log(keyed);
+});
+document.getElementById("reset").addEventListener("click", function () {
+  location.reload();
 }); // if the word has been guessed, alert you win
-// if letter is incorrect and hasn't been guesses before, draw next portion of man
-// if man is complete, alert you lost
 // if play again is pressed, clear wrong guesses
 // if play again is pressed, pick new random word
 // if play again is pressed, populate underscores based on word length
@@ -199,7 +200,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53595" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56565" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

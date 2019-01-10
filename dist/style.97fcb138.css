@@ -9515,6 +9515,7 @@ body {
   background: #D8D9DE;
   color: #584848;
   font-family: "Noto Serif TC", serif;
+  text-align: center;
 }
 
 .row {
@@ -9522,24 +9523,37 @@ body {
   text-align: center;
 }
 
-h1 {
+.heads {
   margin: 25px auto 0 auto;
   padding: 25px 0 25px 0;
+  background-color: #393B45;
+  border-bottom: 6px solid #F3B54A;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h1 {
   font-family: "Anton", sans-serif;
   letter-spacing: 10px;
-  font-size: 75px;
+  font-size: 70px;
   color: #6E7889;
-  background-color: #393B45;
-  border-bottom: 2px solid #F3B54A;
+}
+
+.platform {
+  height: 70px;
+  filter: grayscale(100%);
+}
+
+#second {
+  transform: scaleX(-1);
 }
 
 .gameBoard {
-  height: 450px;
-  margin-bottom: 25px;
+  height: 375px;
+  margin-bottom: 10px;
 }
 
 .game {
-  height: 450px;
+  height: 375px;
 }
 
 .underscore {
@@ -9548,14 +9562,13 @@ h1 {
 }
 
 img {
-  height: 400px;
-  width: 300px;
+  height: 350px;
   object-fit: contain;
 }
 
 p {
   font-family: "Nunito Sans", sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   font-size: 40px;
 }
 
@@ -9566,4 +9579,17 @@ p {
 
 .wrongGuess {
   font-size: 25px;
+  border: 1px solid #393B45;
+  height: 40px;
+}
+
+button {
+  margin: 10px;
+  background: #F3B54A;
+  color: #6E7889;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  border: 1px solid #F3B54A;
+  border-radius: 3px;
+  width: 30px;
 }

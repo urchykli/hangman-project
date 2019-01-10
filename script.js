@@ -28,7 +28,8 @@ console.log(getUnderscores());
 // listen for letter
 document.addEventListener("keypress", event => {
   let guess = String.fromCharCode(event.keyCode);
-  let keyed = guess.toLowerCase();
+	let keyed = guess.toLowerCase();
+	//checking if letter is in word
   if (wordPicked.indexOf(keyed) > -1) {
     //where can I put the includes to alert once the game has been won?
     for (let i = 0; i < wordPicked.length; i++) {
@@ -61,9 +62,11 @@ document.addEventListener("keypress", event => {
   console.log(keyed);
 });
 
+document.getElementById("reset").addEventListener("click", function(){
+	location.reload()
+})
+
 // if the word has been guessed, alert you win
-// if letter is incorrect and hasn't been guesses before, draw next portion of man
-// if man is complete, alert you lost
 // if play again is pressed, clear wrong guesses
 // if play again is pressed, pick new random word
 // if play again is pressed, populate underscores based on word length
