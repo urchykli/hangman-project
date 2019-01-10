@@ -146,12 +146,18 @@ document.addEventListener("keypress", function (event) {
     }
   } // if letter is not in the word
   else if (wrongGuess.indexOf(keyed) === -1) {
-      wrongCount++; // update image
+      wrongCount++;
 
-      man.src = "/images/".concat(wrongCount, ".jpg"); // if letter is incorrect and hasn't been guessed before, add to wrong guesses
+      if (wrongCount === 10) {
+        man.src = "/images/".concat(wrongCount, ".jpg");
+        alert("You Lose");
+      } else {
+        // update image
+        man.src = "/images/".concat(wrongCount, ".jpg"); // if letter is incorrect and hasn't been guessed before, add to wrong guesses
 
-      wrongGuess.push(keyed);
-      wrong[0].innerHTML = wrongGuess.join(" ");
+        wrongGuess.push(keyed);
+        wrong[0].innerHTML = wrongGuess.join(" ");
+      }
     } else if (wrongGuess.indexOf(keyed) > -1) {
       alert("Already guessed");
     } else if (underscores.indexOf("_") === -1) {
@@ -193,7 +199,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56468" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53595" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

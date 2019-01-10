@@ -42,11 +42,16 @@ document.addEventListener("keypress", event => {
   // if letter is not in the word
   else if (wrongGuess.indexOf(keyed) === -1) {
     wrongCount++;
-    // update image
-    man.src = `/images/${wrongCount}.jpg`;
-    // if letter is incorrect and hasn't been guessed before, add to wrong guesses
-    wrongGuess.push(keyed);
-    wrong[0].innerHTML = wrongGuess.join(" ");
+    if (wrongCount === 10) {
+      man.src = `/images/${wrongCount}.jpg`;
+      alert("You Lose");
+    } else {
+      // update image
+      man.src = `/images/${wrongCount}.jpg`;
+      // if letter is incorrect and hasn't been guessed before, add to wrong guesses
+      wrongGuess.push(keyed);
+      wrong[0].innerHTML = wrongGuess.join(" ");
+    }
   } else if (wrongGuess.indexOf(keyed) > -1) {
     alert("Already guessed");
   } else if (underscores.indexOf("_") === -1) {
