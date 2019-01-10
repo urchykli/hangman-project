@@ -166,13 +166,11 @@ document.addEventListener("keypress", function (event) {
 
   console.log(underscores);
   console.log(keyed);
-});
+}); //reset game
+
 document.getElementById("reset").addEventListener("click", function () {
   location.reload();
 }); // if the word has been guessed, alert you win
-// if play again is pressed, clear wrong guesses
-// if play again is pressed, pick new random word
-// if play again is pressed, populate underscores based on word length
 },{}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -200,7 +198,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56565" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59896" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

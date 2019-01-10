@@ -61,12 +61,9 @@ document.addEventListener("keypress", event => {
   console.log(underscores);
   console.log(keyed);
 });
-
+//reset game
 document.getElementById("reset").addEventListener("click", function(){
 	location.reload()
 })
 
 // if the word has been guessed, alert you win
-// if play again is pressed, clear wrong guesses
-// if play again is pressed, pick new random word
-// if play again is pressed, populate underscores based on word length
