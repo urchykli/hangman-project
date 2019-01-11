@@ -8,22 +8,39 @@ This project is a very basic game of hangman rendered in the browser.
 
 ## Features
 
-None
+- New word is picked when "Play Again" is clicked or page is refreshed
+<br>
+- Letters replace underscores when a correct letter is chosen
+<br>
+- Image changes and letter appears for each wrong guess
+<br>
+- Alert "Already guessed" for duplicate wrong letters
+<br>
+- Alert "You lose" when the game man is hung
 
-## Installation
 
-wat
+## Technology
+
+- HTML
+- Pug
+- Parcel
+- sass
+- Javascript
+
+
 
 ## Contribute
 
-- Issue Tracker: github.com/$project/$project/issues
-- Source Code: github.com/$project/$project
+- Source Code: https://github.com/urchykli/hangman-project
+- Issue Tracker:
+<br>
+	Alert for winning
+<br>
+	Two player (player 1 inputs a word, player 2 guesses)
+<br>
+	Use canvas for the man
+<br>
+	Make page responsive
 
-## Support
 
-If you are having issues, please let us know.
-We have a mailing list located at: urchykli@gmail.com
 
-## License
-
--\_-
