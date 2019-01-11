@@ -4,7 +4,7 @@
 
 This project is a very basic game of hangman rendered in the browser.
 
-![hangman game](/images/gameImage.jpg)
+![hangman game](/src/images/gameImage.jpg)
 
 ## Features
 
