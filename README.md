@@ -1,37 +1,29 @@
 # hangman-project
-hangman project
-========
 
-Hangman is a very basic game of hangman rendered in the browser.
+# hangman project
 
-Look how easy it is to use:
+This project is a very basic game of hangman rendered in the browser.
 
-    Type a letter
-    This is dumb
-    keep going til you win or lose
+![hangman game](/images/gameImage.jpg)
 
-Features
---------
+## Features
 
 None
 
-Installation
-------------
+## Installation
 
 wat
 
-Contribute
-----------
+## Contribute
 
 - Issue Tracker: github.com/$project/$project/issues
 - Source Code: github.com/$project/$project
 
-Support
--------
+## Support
 
 If you are having issues, please let us know.
 We have a mailing list located at: urchykli@gmail.com
 
-License
--------
--_-
+## License
+
+-\_-
